@@ -9,13 +9,18 @@ export class DonateForm {
         this.#btnText = btnText
     }
 
+    updateTotalAmount( newAmount ){
+        const h1El = document.querySelector('#total-amount')
+        h1El.innerText = newAmount + '$'
+    }
+
     render(){
         const donateForm = document.createElement('form')
         donateForm.className = 'donate-form'
 
         const h1El = document.createElement('h1')
         h1El.id = 'total-amount'
-        h1El.innerText = this.#h1
+        h1El.innerText = this.#h1 + '$'
         donateForm.append( h1El )
 
         const donateForm__inputLabel = document.createElement('label')
@@ -37,6 +42,8 @@ export class DonateForm {
         donateForm__submitButton.type = 'submit'
         donateForm__submitButton.innerText = this.#btnText
         donateForm.append( donateForm__submitButton )
+
+        
 
         return donateForm
     }

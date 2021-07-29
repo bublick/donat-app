@@ -5,6 +5,23 @@ export class DonateList{
         this.#donates = donates
     }
 
+    updateDonates( updatedDonates ){
+        const donatesContainer__donates = document.querySelector('.donates-container__donates')
+        donatesContainer__donates.innerHTML = ''
+
+        updatedDonates.forEach( el => {
+            const donateItem = document.createElement('div')
+            donateItem.className = 'donate-item'
+            donateItem.innerText = el.date + " - "
+
+            const boldText = document.createElement('b')
+            boldText.textContent = el.amount + "$"
+            donateItem.append( boldText )
+
+            donatesContainer__donates.append( donateItem )
+        });
+    }
+
     render(){
         const donatesContainer = document.createElement('div')
         donatesContainer.className = 'donates-container'
@@ -16,6 +33,7 @@ export class DonateList{
 
         const donatesContainer__donates = document.createElement('div')
         donatesContainer__donates.className = 'donates-container__donates'
+        donatesContainer.append( donatesContainer__donates )
 
         this.#donates.forEach( el => {
             const donateItem = document.createElement('div')
@@ -26,7 +44,7 @@ export class DonateList{
             boldText.textContent = el.amount + "$"
             donateItem.append( boldText )
 
-            donatesContainer.append( donateItem )
+            donatesContainer__donates.append( donateItem )
         });
 
         return donatesContainer

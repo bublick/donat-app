@@ -1,10 +1,10 @@
-export default class App{
-    
-    run(){
-        const helloBlock = document.createElement('div')
-        helloBlock.innerText = 'Hello World'
+import { DonateForm } from "./donate-form"
 
-        document.body.append(helloBlock)
+export default class App{
+    donateBtn = new DonateForm('28$', 'Введите сумму в $', 'Задонатить').render()
+
+    run(){
+        document.body.append( this.donateBtn )
     }
 
 }

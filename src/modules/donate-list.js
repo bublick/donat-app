@@ -1,3 +1,5 @@
+import { Settings as Globals } from "../core/constants/settings"
+
 export class DonateList{
     #donates
 
@@ -15,7 +17,7 @@ export class DonateList{
             donateItem.innerText = el.date + " - "
 
             const boldText = document.createElement('b')
-            boldText.textContent = el.amount + "$"
+            boldText.textContent = el.amount + Globals.currency
             donateItem.append( boldText )
 
             donatesContainer__donates.append( donateItem )
@@ -41,7 +43,7 @@ export class DonateList{
             donateItem.innerText = el.date + " - "
 
             const boldText = document.createElement('b')
-            boldText.textContent = el.amount + "$"
+            boldText.textContent = el.amount + Globals.currency
             donateItem.append( boldText )
 
             donatesContainer__donates.append( donateItem )

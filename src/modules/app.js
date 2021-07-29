@@ -1,5 +1,6 @@
 import { DonateForm } from "./donate-form"
 import { DonateList } from "./donate-list"
+import { Settings as Globals } from "../core/constants/settings"
 
 export default class App{
     state = { 
@@ -9,7 +10,7 @@ export default class App{
         totalAmount: 0
     }
 
-    donateFrm = new DonateForm( this.state.totalAmount, 'Введите сумму в $', 'Задонатить')
+    donateFrm = new DonateForm( this.state.totalAmount, 'Введите сумму в ' + Globals.currency, 'Задонатить')
     
     mockDonates = [
         { amount: 4, date: new Date() },

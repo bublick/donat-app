@@ -1,3 +1,5 @@
+import { Settings as Globals } from "../core/constants/settings"
+
 export class DonateForm {
     #h1
     #labelText
@@ -11,7 +13,7 @@ export class DonateForm {
 
     updateTotalAmount( newAmount ){
         const h1El = document.querySelector('#total-amount')
-        h1El.innerText = newAmount + '$'
+        h1El.innerText = newAmount + Globals.currency
     }
 
     render(){
@@ -20,7 +22,7 @@ export class DonateForm {
 
         const h1El = document.createElement('h1')
         h1El.id = 'total-amount'
-        h1El.innerText = this.#h1 + '$'
+        h1El.innerText = this.#h1 + Globals.currency
         donateForm.append( h1El )
 
         const donateForm__inputLabel = document.createElement('label')

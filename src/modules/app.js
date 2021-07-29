@@ -1,16 +1,9 @@
 import { DonateForm } from "./donate-form"
 import { DonateList } from "./donate-list"
 import { Settings as Globals } from "../core/constants/settings"
+import * as Utils from "../core/utils"
 
 export default class App{
-    state = { 
-        donates: [
-
-        ],
-        totalAmount: 0
-    }
-
-    donateFrm = new DonateForm( this.state.totalAmount, 'Введите сумму в ' + Globals.currency, 'Задонатить')
     
     mockDonates = [
         { amount: 4, date: new Date() },
@@ -18,6 +11,16 @@ export default class App{
         { amount: 3, date: new Date() },
         { amount: 1, date: new Date() },
     ];
+    
+    state = { 
+        donates: [
+           ...this.mockDonates 
+        ],
+        totalAmount: Utils.calculateSumOfNumbers( this.mockDonates )
+    }
+
+    donateFrm = new DonateForm( this.state.totalAmount, 'Введите сумму в ' + Globals.currency, 'Задонатить')
+    
     donateLst = new DonateList( this.state.donates )
 
     createNewDonate( newDonate ){

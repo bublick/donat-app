@@ -19,6 +19,9 @@ module.exports = ({ development }) => ({
             template: 'index.html'
         }),
         new CleanWebpackPlugin(),
+        new webpack.ProvidePlugin({
+            moment : 'moment'
+        })
     ],
     module: {
         rules: [

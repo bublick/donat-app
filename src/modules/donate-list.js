@@ -1,4 +1,5 @@
 import { Settings as Globals } from "../core/constants/settings"
+import * as Utils from "../core/utils"
 
 export class DonateList{
     #donates
@@ -14,7 +15,7 @@ export class DonateList{
         updatedDonates.forEach( el => {
             const donateItem = document.createElement('div')
             donateItem.className = 'donate-item'
-            donateItem.innerText = el.date + " - "
+            donateItem.innerText = Utils.getFormattedTime( el.date ) + " - "
 
             const boldText = document.createElement('b')
             boldText.textContent = el.amount + Globals.currency
@@ -40,7 +41,7 @@ export class DonateList{
         this.#donates.forEach( el => {
             const donateItem = document.createElement('div')
             donateItem.className = 'donate-item'
-            donateItem.innerText = el.date + " - "
+            donateItem.innerText = Utils.getFormattedTime( el.date ) + " - "
 
             const boldText = document.createElement('b')
             boldText.textContent = el.amount + Globals.currency
